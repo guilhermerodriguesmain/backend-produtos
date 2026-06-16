@@ -1,0 +1,24 @@
+
+
+# ignorar arquivos de configuração do ambiente de desenvolvimento
+.vscode/
+.idea/
+
+# ignorar arquivos de log
+*.log
+
+# ignorar arquivos de build
+dist/
+build/
+
+# Ignora a pasta do ambiente virtual
+venv/
+.venv/
+env/
+ENV/
+
+# Ignora arquivos compilados do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
