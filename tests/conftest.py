@@ -11,9 +11,9 @@ from app.main import app
 
 load_dotenv()
 
-TEST_DATABASE_URL = os.getenv("TEST_DATABASE_URL")
+DATABASE_URL = os.getenv('DATABASE_URL')
 
-engine = create_engine(TEST_DATABASE_URL)
+engine = create_engine('DATABASE_URL', echo=True, future=True)
 
 TestingSessionLocal = sessionmaker(
     autocommit=False,
@@ -44,7 +44,7 @@ def client():
 
 
 @pytest.fixture
-def produto_existente(client):
+def produto_existente(client: TestClient):
     response = client.post(
         "/produtos",
         json={
