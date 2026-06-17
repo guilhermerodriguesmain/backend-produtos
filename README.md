@@ -13,7 +13,7 @@ Uma API RESTful para gerenciamento de produtos construída com FastAPI, SQLAlche
 ### 1. Clonar o Repositório
 
 ```bash
-git clone <seu-repositorio>
+git clone https://github.com/guilhermerodriguesmain/backend-produtos.git
 cd backend-produtos
 ```
 
@@ -40,7 +40,8 @@ pip install -r requirements.txt
 Crie um arquivo `.env` na raiz do projeto:
 
 ```env
-DATABASE_URL=postgresql://postgres:postgres@localhost:5433/produtos_db
+DATABASE_URL=postgresql://usuario:senha@host:porta/nome_do_banco
+
 ```
 
 Ajuste as credenciais conforme sua configuração do Docker.
@@ -57,8 +58,8 @@ docker-compose up -d
 
 Este comando:
 - Cria um container PostgreSQL com o serviço rodando em `localhost:5433`
-- User: `postgres`
-- Password: `postgres`
+- User: `usuario`
+- Password: `senha`
 - Database: `produtos_db`
 - Banco de teste: `produtos_test`
 
@@ -341,7 +342,8 @@ pip install -r requirements.txt
 Crie o arquivo `.env` na raiz com a URL do banco:
 
 ```env
-DATABASE_URL=postgresql://postgres:postgres@localhost:5433/produtos_db
+DATABASE_URL=postgresql://usuario:senha@host:porta/nome_do_banco
+
 ```
 
 ### Erro: Connection refused (PostgreSQL)
@@ -365,4 +367,4 @@ MIT
 
 ## 👤 Autor
 
-Seu Nome - [GitHub](https://github.com)
+Guilherme Rodrigues - [GitHub](https://github.com/guilhermerodriguesmain/backend-produtos.git)
