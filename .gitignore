@@ -23,3 +23,8 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Ignora arquivos de configuração do pytest
+.pytest_cache/
+.coverage
+htmlcov/

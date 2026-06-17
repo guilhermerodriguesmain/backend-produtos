@@ -1,6 +1,22 @@
 
 services:
 
+  app:
+    build: .
+    container_name: api_produtos
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/produtos
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - produtos-network
+
   db:
     image: postgres:16
     container_name: produtos_db
@@ -21,6 +37,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - produtos-network
 
   db_test:
     image: postgres:16
@@ -40,6 +58,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - produtos-network
 
 volumes:
   postgres_data:
+
+networks:
+  produtos-network:
+    driver: bridge
