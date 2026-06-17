@@ -1,17 +1,16 @@
 """
-4.3 Testes (tests/test_produtos.py)
-Obrigatório: mínimo de 10 funções de teste, cobrindo:
-Listar produtos quando o banco está vazio
-Criar produto e verificar persistência no banco
-Criar produto e verificar que aparece na listagem
-Buscar produto por id — caso de sucesso
-Buscar produto com id inexistente — deve retornar 404
-Deletar produto — deve retornar 204
-Deletar produto e confirmar remoção com GET subsequente
-Deletar produto inexistente — deve retornar 404
-Pelo menos 1 teste parametrizado com @pytest.mark.parametrize cobrindo payloads inválidos (status 422)
-Pelo menos 1 teste que valide que o banco está isolado entre execuções
+foram criados 10 testes cobrindo os cenários obrigatórios, incluindo a validação de isolamento do banco entre execuções e testes parametrizados para payloads inválidos.
 
+os testes agora cobrem os seguintes cenários:
+1- test_lista_vazia 
+2- test_criar_produto
+3- test_listar_produtos 
+4- test_buscar_produto_por_id
+5- test_buscar_produto_id_inexistente 
+6- test_deletar_produto
+7- test_deletar_produto_inexistente 
+8- test_deletar_produto_e_confirmar_remocao
+9- test_criar_produto_payload_invalido 10- test_isolamento_banco
 """
 
 # Teste de lista de produtos vazia
@@ -120,5 +119,4 @@ def test_isolamento_banco(client):
     response = client.get("/produtos")
     assert response.status_code == 200
     assert response.json() == []
-    
-    
+
